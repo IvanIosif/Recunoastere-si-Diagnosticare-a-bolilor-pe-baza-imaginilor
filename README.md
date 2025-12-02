@@ -1,1 +1,0 @@
-# Recunoastere-si-Diagnosticare-a-bolilor-pe-baza-imaginilor
