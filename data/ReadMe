@@ -1,1 +1,25 @@
+Acest folder conține setul de date procesat și structurat pentru antrenarea, validarea și testarea rețelei neuronale convoluționale.
 
+1. Structura Foldere-lor
+Setul de date este organizat conform arhitecturii standard de Deep Learning, utilizând subfoldere pentru etichetarea automată a claselor:
+
+docs/
+├── train/              # 70% din date - utilizate pentru ajustarea ponderilor
+│   ├── Pneumonia/      # Imagini numerotate (1.png, 2.png...)
+│   └── Tuberculoza/
+├── validation/         # 15% din date - utilizate pentru monitorizarea overfitting-ului
+│   ├── Pneumonia/
+│   └── Tuberculoza/
+└── test/               # 15% din date - utilizate pentru evaluarea finală (unseen data)
+    ├── Pneumonia/
+    └── Tuberculoza/
+
+2. Statistici Set de Date
+
+În urma procesului de echilibrare și stratificare, setul de date final conține un total de 6245 de imagini.
+
+Set	           Pneumonia	  Tuberculoza	   Total
+Train  70%        2185         2186          4371
+Validation 15%    468           469          937
+Test 15%          469           468          937
+Total            3122           3123         6245
