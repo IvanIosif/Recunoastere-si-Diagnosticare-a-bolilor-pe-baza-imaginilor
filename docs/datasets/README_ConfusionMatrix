@@ -1,1 +1,5 @@
-
+Matricea de Confuzie arată că modelul confundă cel mai des Tuberculoza cu Pneumonia (538 de cazuri de False Negatives). 
+Cauză posibilă: Simptomele comune precum febra moderată, oboseala și tusea sunt prezente în ambele seturi de date.
+Deoarece modelul este un Perceptron simplu (liniar), acesta întâmpină dificultăți în a trasa o frontieră de decizie clară
+atunci când valorile simptomelor sunt în zona neutră (3 pe scara 1-5), ducând la o rată de eroare mai mare pentru
+clasa 'Tuberculoză' față de 'Pneumonie' (unde avem doar 294 de confuzii).```
