@@ -1,0 +1,5 @@
+{
+    "test_accuracy": 0.8273,
+    "test_f1_macro": 0.8253,
+    "latency_ms": 35
+}
