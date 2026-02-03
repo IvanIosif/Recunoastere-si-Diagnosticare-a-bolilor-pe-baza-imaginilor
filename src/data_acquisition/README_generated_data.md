@@ -1,4 +1,4 @@
-### 📂 README pentru `src/data_acquisition/` (Generatorul)
+### 📂 README pentru `src/data_acquisition/`
 **Fișier:** `src/data_acquisition/README.md`
 
 # 📡 Modulul 1: Achiziție Date
