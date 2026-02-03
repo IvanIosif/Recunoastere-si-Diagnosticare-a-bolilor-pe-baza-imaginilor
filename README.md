@@ -31,18 +31,15 @@ Sistemul este modularizat în 3 componente interconectate:
 1.  **Modulul de Procesare Date & Normalizare (`src/data_acquisition`):**
     * Maparea răspunsurilor subiective în intervalul unitar [0, 1] pentru eliminarea diferențelor de scară.
     * Gestionarea datelor sintetice și echilibrarea seturilor de antrenament.
-    * [Detalii complete aici](./src/data_acquisition/README.md)
 
 2.  **Modulul de Inteligență Artificială (`src/neural_network`):**
     * **Tehnologie:** TensorFlow / Keras.
     * **Arhitectură:** MLP (Multi-Layer Perceptron) cu 3 straturi ascunse, activări ReLU și strat de ieșire Sigmoid.
     * **Loss Function: Binary Crossentropy (pentru clasificare binară de înaltă precizie).
-    * [Detalii complete aici](./src/neural_network/README.md)
 
 3.  **Interfața Grafică - Virtual Cockpit (`src/app`):**
     * Chestionar ce cuprinde 20 de indicatori clinici.
     * Afișează diagnosticul și probabilitatea .
-    * [Detalii complete aici](./src/app/README.md)
 
 ---
 
