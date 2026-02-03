@@ -7,19 +7,15 @@ import pandas as pd
 from datetime import datetime
 import plotly.graph_objects as go
 
-# --- 0. CONFIGURARE CĂI RELATIVE (AUTOMATIZARE) ---
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Urcăm două niveluri pentru a ajunge la rădăcina proiectului (RN)
 PATH_BASE = os.path.abspath(os.path.join(current_dir, "../../"))
 
-# Definim căile către resurse relativ la rădăcină
 PATH_MODELS = os.path.join(PATH_BASE, "models")
 PATH_CONFIG = os.path.join(PATH_BASE, "config")
 PATH_STORAGE = os.path.join(PATH_BASE, "src", "stocare_date")
 
-# --- 1. ÎNCĂRCARE RESURSE (Cu Căi Dinamice) ---
 @st.cache_resource
 def load_resources():
     model_path = os.path.join(PATH_MODELS, "optimized_model.keras")
@@ -38,7 +34,6 @@ def load_resources():
 # --- 2. LOGICĂ STOCARE DATE (Cale Relativă) ---
 def log_diagnostic_to_csv(user_name, prediction, confidence, raw_values):
     try:
-        # Creăm folderul de stocare dacă nu există
         if not os.path.exists(PATH_STORAGE):
             os.makedirs(PATH_STORAGE, exist_ok=True)
         
@@ -176,3 +171,4 @@ if submit:
         except Exception as ex:
             st.error(f"## 🚩 ERROR_STATE: Eroare neașteptată în timpul procesării")
             st.info(f"Detalii tehnice: {str(ex)}")
+
