@@ -1,65 +1,78 @@
-SISTEM INTELIGENT HIBRID PENTRU DIAGNOSTICUL AFECȚIUNILOR RESPIRATORII
-Student: Ivan Iosif-Sebastian
-Grupa: 633AB | Facultatea: Ingineria Industrială și Robotică (FIIR) - UPB
-Disciplina: Rețele Neuronale
+# SISTEM INTELIGENT DE PREDICȚIE ȘI OPTIMIZARE A SCHIMBĂRII TREPTELOR DE VITEZĂ
 
-📌 Descrierea Proiectului (Overview)
-Acest proiect propune o soluție software avansată (SIA - Sistem de Inteligență Artificială) destinată triajului medical rapid și precis.
-Spre deosebire de sistemele de diagnostic clasice bazate pe arbori de decizie statici, acest sistem utilizează o Rețea Neuronală Artificială (Perceptron)
-antrenată pe date clinice structurate pentru a "înțelege" corelația dintre 20 de simptome și patologia maferentă.                                
+**Student:** Ivan Iosif-Sebastian  
+**Grupa:** 633AB
+**Facultatea:** Ingineria Industrială și Robotică (FIIR) - UPB  
+**Disciplina:** Rețele Neuronale
 
-🎯 Obiectiv Principal: Eficiența Triajului Medical
-Scopul central este reducerea timpului de diagnosticare și eliminarea erorilor umane în mediile aglomerate (Urități de Primiri Urgențe), prin strategii adaptive:
+---
 
-Diferențiere Acut/Cronic: Detectează profilul de Pneumonie (febra înaltă, tuse productivă) și îl separă de cel de TBC (transpirații nocturne, scădere în greutate).
+## 📌 Descrierea Proiectului (Overview)
 
-Explainable AI (XAI): Nu oferă doar un diagnostic, ci explică ponderea matematică (weights) a simptomelor care au dus la acea decizie.
+Acest proiect propune o soluție software avansată de asistență medicală (SIA) destinată triajului rapid între două patologii respiratorii severe: Tuberculoza (TBC) și Pneumonia.
 
-Robustete Clinică: Diferențiază corect simptomele comune (tuse, durere în piept) pe baza intensității și a simptomelor asociate.
+Spre deosebire de triajul clasic bazat pe observație umană, care poate fi subiectiv, acest sistem utilizează o Rețea Neuronală Artificială (Deep Neural Network) antrenată pe un set complex de date
+simptomatice pentru a identifica pattern-uri și a oferi un diagnostic preliminar de mare precizie.
 
-⚙️ Arhitectura Sistemului
-Sistemul este modularizat în 3 componente interconectate, dezvoltate pe parcursul etapelor 3, 4 și 5:
+### 🎯 Obiectiv Principal: Suport medical in triaj medical
+Scopul central este reducerea timpului de diagnostic și eliminarea erorilor de clasificare, prin strategii de optimizare a rețelei neuronale:
 
-1. Modulul de Achiziție Date & Preprocesare (Etapa 3)
-Generează un set de date sintetic de 30000 de cazuri bazat pe protocoale medicale reale.
+Semantic Boosting: Ponderarea manuală a simptomelor critice (ex. scăderea în greutate etc.) pentru ca modelul sa inteleaga gravitatea ancorelor medicale.
 
-Implementează Nivelul 1 (Expert System) pentru etichetarea logică a datelor.
+Prevenirea Fals-Negativelor: Ajustarea ponderilor claselor (Class Weights) pentru a prioritiza detectarea TBC, minimizând riscul de a rata un pacient critic.
 
-Include normalizare Min-Max și augmentare tip Jittering (zgomot de senzori) pentru a simula imprecizia raportării simptomelor de către pacienți.
+Stabilitate prin Optimizare: Utilizarea tehnicilor de Batch Normalization și Dropout pentru a asigura un diagnostic stabil indiferent de zgomotul din răspunsurile subiective ale pacienților.
+---
 
-2. Modulul de Inteligență Artificială (Etapa 4 & 5)
-Tehnologie: TensorFlow / Keras.
+## ⚙️ Arhitectura Sistemului
+`
+Sistemul este modularizat în 3 componente interconectate:
 
-Arhitectură: Perceptron cu funcție de activare Sigmoid pentru clasificare binară.
+1.  **Modulul de Procesare Date & Normalizare (`src/data_acquisition`):**
+    * Maparea răspunsurilor subiective în intervalul unitar [0, 1] pentru eliminarea diferențelor de scară.
+    * Gestionarea datelor sintetice și echilibrarea seturilor de antrenament.
+    * [Detalii complete aici](./src/data_acquisition/README.md)
 
-Performanță: Acuratețe de 81.55% pe setul de testare, cu o convergență stabilă a funcției de Loss.
+2.  **Modulul de Inteligență Artificială (`src/neural_network`):**
+    * **Tehnologie:** TensorFlow / Keras.
+    * **Arhitectură:** MLP (Multi-Layer Perceptron) cu 3 straturi ascunse, activări ReLU și strat de ieșire Sigmoid.
+    * **Loss Function: Binary Crossentropy (pentru clasificare binară de înaltă precizie).
+    * [Detalii complete aici](./src/neural_network/README.md)
 
-3. Interfața Expert (Virtual Clinic - Etapa 5)
-Dashboard Digital: Realizat în Streamlit, optimizat pentru interacțiune rapidă.
+3.  **Interfața Grafică - Virtual Cockpit (`src/app`):**
+    * Chestionar ce cuprinde 20 de indicatori clinici.
+    * Afișează diagnosticul și probabilitatea .
+    * [Detalii complete aici](./src/app/README.md)
 
-Analiză în timp real: Afișează probabilitatea diagnosticului și grafice interactive (Plotly) cu influența fiecărui simptom.
+---
 
-Logica Hibridă: Combină predicția rețelei cu vizualizarea ponderilor (Nivel 2).
+## 📂 Structura și Progresul Proiectului
 
-Etapa	Descriere	Documentație
-Etapa 3	Analiza datelor, generarea logică (Nivel 1) și preprocesarea.	 https://github.com/IvanIosif/Proiect-RN-Iosif-Sebastian-Ivan/blob/main/README%20%E2%80%93%20Etapa%203%20-Analiza%20si%20Pregatirea%20Setului%20de%20Date%20pentru%20Retele%20Neuronale.md
-Etapa 4	Proiectarea arhitecturii modelului (Un-trained) și diagramele de flux.	https://github.com/IvanIosif/Proiect-RN-Iosif-Sebastian-Ivan/blob/main/README_Etapa4_Arhitectura_SIA%20functionala.md
+Proiectul a fost dezvoltat incremental, fiecare etapă fiind documentată separat:
 
+| Etapa | Descriere | Documentație                                                                                                                                                                          |
+| :--- | :--- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Etapa 3** | Analiza datelor, generarea fizică și preprocesarea. | [Vezi README Etapa 3]   "./docs/Etapa 3 -Analiza si Pregatirea Setului de Date pentru Retele Neuronale.md"                                                                            |
+| **Etapa 4** | Definirea arhitecturii software și a Diagramelor de Stare. | [Vezi README Etapa 4] "./docs/README_Etapa4_Arhitectura_SIA functionala.md"                                                                                                           |
+| **Etapa 5** | Antrenarea modelului Keras, optimizare și validare finală. | [Vezi README Etapa 5](./docs/README_Etapa5_Antrenare_RN - Accuracy-0.8156, , F1=0.815.md")                                                                                            |
+| **Etapa 6** | Analiza performanței, optimizare finală și concluzii. | [Vezi README Etapa 6](./docs/README_ Etapa 6 completă – Accuracy=82.73%, F1=.82.53% (optimizat).md")                                                                                  |
 
-🚀 Cum se rulează proiectul (Quick Start)
-1. Cerințe de sistem
-Python 3.9+
+---
 
-Librării: tensorflow, pandas, numpy, scikit-learn, streamlit, plotly, joblib
+## 🚀 Cum se rulează proiectul (Quick Start)
 
-2. Instalare
-Bash
+### 1. Cerințe de sistem
+* Python 3.8+
+* Dependențe: Vezi `requirements.txt`
 
-3. Rulare Aplicație (Interfața Finală)
-Bash
+### 2. Instalare
+```bash
+# Clonare repository
+git clone https://github.com/IvanIosif/Proiect-RN
+
+# Instalare librării
+pip install -r requirements.txt
+
+# Lansare interfață Streamlit (Dashboard)
 streamlit run src/app/main.py
-pip install tensorflow pandas numpy scikit-learn streamlit plotly joblib
-
-4. Re-antrenare Model
-Bash
-python train.py
+```
