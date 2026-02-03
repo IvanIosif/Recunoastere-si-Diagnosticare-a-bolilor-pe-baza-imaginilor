@@ -1,4 +1,4 @@
-# SISTEM INTELIGENT DE PREDICȚIE ȘI OPTIMIZARE A SCHIMBĂRII TREPTELOR DE VITEZĂ
+# Sistem cu inteligență artificială de Diagnosticare si Triaj Medical
 
 **Student:** Ivan Iosif-Sebastian  
 **Grupa:** 633AB
