@@ -683,7 +683,7 @@ pentru a elimina eventualele întrebări din chestionar care s-au dovedit a fi z
 - [X] **Structura repository** conformă cu Secțiunea 8
 - [X] **requirements.txt** actualizat și funcțional
 - [X] **Cod comentat** (minim 15% linii comentarii relevante)
-- [] **Toate path-urile relative** (nu absolute: `/Users/...` sau `C:\...`)
+- [X] **Toate path-urile relative** (nu absolute: `/Users/...` sau `C:\...`)
 
 ### Acces și Versionare
 
